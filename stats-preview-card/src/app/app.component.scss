@@ -1,0 +1,118 @@
+.stats {
+    background-color: var(--clr-primary-800);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    display: grid;
+    max-width: 1080px;
+
+    &--header {
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+    
+    &--header::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: #AB5CDB;
+        mix-blend-mode: multiply;
+    }
+
+    &--content {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 2.5rem;
+        padding: 2.5rem 2rem 2rem 2rem;
+    }
+
+    &--detail {
+        .title {
+            font-size: 1.75rem;
+            line-height: 2rem;
+            font-weight: var(--font-bold);
+            margin-bottom: 1rem;
+            color: var(--clr-neutral-100);
+
+            &--accent {
+                color: #AB5CDB;
+            }
+        }
+
+        .description {
+            line-height: 1.5625rem;
+        }
+    }
+
+    &--numbers {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        span {
+            display: inline-flex;
+            flex-direction: column;
+            font-size: 1.5rem;
+            color: var(--clr-neutral-100);
+            font-weight: var(--font-bold);
+
+            &::after {
+                content: attr(data-stat);
+                font-family: var(--ff-accent);
+                text-transform: uppercase;
+                font-size: 0.75rem;
+                color: var(--clr-neutral-300);
+                font-weight: var(--font-regular);
+                letter-spacing: 1px;
+            }
+        }
+    }
+}
+
+@media (min-width: 600px) {
+    .stats {
+        &--detail {
+            .title {
+                line-height: 2.75rem;
+            }
+        }
+
+        &--numbers {
+            flex-direction: row;
+            justify-content: center;
+            gap: 3.85rem;
+        }
+    }
+}
+
+@media (min-width: 800px) {
+    .stats {
+        grid-template-columns: 1fr 1fr;
+
+        &--header {
+            align-items: center;
+        }
+
+        &--content {
+            order: -1;
+            text-align: left;
+            padding-right: 5rem;
+            padding-left: 4rem;
+            justify-content: center;
+        }
+
+        &--detail {
+            .title {
+                font-size: 2.25rem;
+                line-height: 2.75rem;
+                margin-bottom: 1.563rem;
+            }
+        }
+
+        &--numbers {
+            justify-content: normal;
+        }
+    }
+}
